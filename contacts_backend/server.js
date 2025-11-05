@@ -16,7 +16,6 @@ let contacts = [
 
 // 健康检查
 app.get('/', (req, res) => {
-<<<<<<< HEAD
   res.json({ 
     success: true, 
     message: '通讯录后端服务运行正常',
@@ -132,30 +131,3 @@ app.listen(PORT, '0.0.0.0', () => {
 });
 
 module.exports = app;
-=======
-    res.json({ 
-        success: true, 
-        message: '通讯录后端服务运行正常',
-        port: PORT,
-        environment: process.env.NODE_ENV || 'development'
-  })
-        endpoints: {
-            '获取所有联系人': 'GET /api/contacts',
-            '添加联系人': 'POST /api/contacts',
-            '修改联系人': 'PUT /api/contacts/:id',
-            '删除联系人': 'DELETE /api/contacts/:id'
-        }
-    });
-});
-
-app.listen(PORT, '0.0.0.0', () => {
-  console.log(`🚀 后端服务器运行在端口 ${PORT}`);
-  console.log(`📍 环境: ${process.env.NODE_ENV || 'development'}`);
-  console.log(`🌐 可访问地址: http://0.0.0.0:${PORT}`);
-});
-
-process.on('SIGTERM', () => {
-  console.log('收到关闭信号，正在优雅关闭服务器...');
-  process.exit(0);
-});
->>>>>>> 1946fcc871e94b985c52d29f20ceb5934053ff53
