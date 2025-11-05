@@ -1,7 +1,5 @@
 // API 基础地址
-const API_BASE = window.location.hostname === 'localhost' 
-  ? 'http://localhost:3000/api' 
-  : '/api';
+const API_BASE_URL = 'https://contacts-system.onrender.com/api';
 
 // DOM 元素
 const contactForm = document.getElementById('contactForm');
@@ -28,7 +26,7 @@ contactForm.addEventListener('submit', async (e) => {
     };
     
     try {
-        const response = await fetch(`${API_BASE}/contacts`, {
+        const response = await fetch(`${API_BASE_URL}/contacts`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -58,7 +56,7 @@ async function loadContacts() {
         contactsTable.style.display = 'none';
         emptyMessage.style.display = 'none';
         
-        const response = await fetch(`${API_BASE}/contacts`);
+        const response = await fetch(`${API_BASE_URL}/contacts`);
         const result = await response.json();
         
         if (result.success) {
@@ -106,7 +104,7 @@ function displayContacts(contacts) {
 // 打开编辑模态框
 async function openEditModal(contactId) {
     try {
-        const response = await fetch(`${API_BASE}/contacts/${contactId}`);
+        const response = await fetch(`${API_BASE_URL}/contacts/${contactId}`);
         const result = await response.json();
         
         if (result.success) {
@@ -138,7 +136,7 @@ editForm.addEventListener('submit', async (e) => {
     };
     
     try {
-        const response = await fetch(`${API_BASE}/contacts/${contactId}`, {
+        const response = await fetch(`${API_BASE_URL}/contacts/${contactId}`, {
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json'
@@ -168,7 +166,7 @@ async function deleteContact(contactId) {
     }
     
     try {
-        const response = await fetch(`${API_BASE}/contacts/${contactId}`, {
+        const response = await fetch(`${API_BASE_URL}/contacts/${contactId}`, {
             method: 'DELETE'
         });
         
