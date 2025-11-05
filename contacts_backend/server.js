@@ -19,7 +19,7 @@ app.get('/', (req, res) => {
         message: '通讯录后端服务运行正常',
         port: PORT,
         environment: process.env.NODE_ENV || 'development'
-  }
+  }）
         endpoints: {
             '获取所有联系人': 'GET /api/contacts',
             '添加联系人': 'POST /api/contacts',
